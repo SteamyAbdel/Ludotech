@@ -22,7 +22,7 @@ public class Jeu {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id;
+    Integer id;
 
     private String titre;
 

@@ -1,11 +1,6 @@
 package fr.eni.ludotech.bo;
 
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
-import jakarta.persistence.Entity;
-import jakarta.persistence.JoinColumn;
-import jakarta.persistence.OneToOne;
+import jakarta.persistence.*;
 import lombok.Data;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -17,12 +12,15 @@ public class Client {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id;
+    Integer id;
 
+    @Column(nullable = false, length = 50)
     private String nom;
 
+    @Column(nullable = false, length = 50)
     private String prenom;
 
+    @Column(nullable = false, length = 50)
     private String email;
 
     @OneToOne(cascade = jakarta.persistence.CascadeType.ALL, orphanRemoval = true)
