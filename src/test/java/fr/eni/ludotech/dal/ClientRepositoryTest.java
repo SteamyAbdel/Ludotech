@@ -6,9 +6,6 @@ import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
-import org.springframework.transaction.annotation.Transactional;
-
-import java.util.Optional;
 
 import static org.assertj.core.api.Assertions.assertThat;
 
@@ -24,6 +21,7 @@ class ClientRepositoryTest {
         client.setNom("Dupont");
         client.setPrenom("Alice");
         client.setEmail("alice.dupont@example.test");
+        client.setTelephone("0601020304");
 
         Adresse adresse = new Adresse();
         adresse.setRue("10 rue des Jeux");
@@ -35,7 +33,7 @@ class ClientRepositoryTest {
 
         assertThat(saved.getId()).isNotNull();
 
-        Client loaded = clientRepository.findById(saved.getId());
+        Client loaded = clientRepository.findById(saved.getId()).orElse(null);
         Assertions.assertNotNull(loaded);
     }
 }

@@ -2,9 +2,6 @@ package fr.eni.ludotech.bo;
 
 import jakarta.persistence.*;
 import lombok.Data;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
 
 @Entity
 @Data
@@ -22,6 +19,8 @@ public class Client {
 
     @Column(nullable = false, length = 50)
     private String email;
+
+    private String telephone;
 
     @OneToOne(cascade = jakarta.persistence.CascadeType.ALL, orphanRemoval = true)
     @JoinColumn(name = "adresse_id")
