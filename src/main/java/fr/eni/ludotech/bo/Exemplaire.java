@@ -22,6 +22,12 @@ public class Exemplaire {
 
     private String reference;
 
+    private String codeBarre;
+
+    private boolean louable = true;
+
+    private boolean loue = false;
+
     @ManyToOne(optional = false)
     @JoinColumn(name = "jeu_id")
     private Jeu jeu;

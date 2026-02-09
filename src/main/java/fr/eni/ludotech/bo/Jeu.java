@@ -11,6 +11,7 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
+import java.math.BigDecimal;
 import java.util.HashSet;
 import java.util.Set;
 
@@ -25,6 +26,8 @@ public class Jeu {
     Integer id;
 
     private String titre;
+
+    private BigDecimal tarifJournalier;
 
     @ManyToMany
     @JoinTable(

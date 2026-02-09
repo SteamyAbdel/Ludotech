@@ -70,6 +70,29 @@ public class ClientService {
         return clientRepository.save(existing);
     }
 
+    public Client createClient(Client client) {
+        if (client == null) {
+            throw new IllegalArgumentException("Client obligatoire");
+        }
+        client.setId(null);
+        return clientRepository.save(client);
+    }
+
+    public void deleteClient(Integer clientId) {
+        if (clientId == null) {
+            throw new IllegalArgumentException("Client id obligatoire");
+        }
+        Client existing = getClientOrThrow(clientId);
+        clientRepository.delete(existing);
+    }
+
+    public Client findClientById(Integer clientId) {
+        if (clientId == null) {
+            throw new IllegalArgumentException("Client id obligatoire");
+        }
+        return getClientOrThrow(clientId);
+    }
+
     private Client getClientOrThrow(Integer clientId) {
         return clientRepository.findById(clientId)
             .orElseThrow(() -> new ClientNotFoundException(clientId));
