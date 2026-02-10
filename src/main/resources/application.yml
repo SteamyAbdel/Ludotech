@@ -12,3 +12,9 @@ spring:
     properties:
       hibernate:
         format_sql: true
+
+security:
+  jwt:
+    issuer: ludotech
+    secret: "ludotech-jwt-secret-32-bytes-minimum!"
+    expiration-minutes: 60
